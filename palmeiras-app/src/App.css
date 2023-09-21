@@ -1,0 +1,102 @@
+/* App.css */
+
+/* Estilos globais */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #0f4d18; /* Verde escuro do Palmeiras */
+  color: #fff; /* Texto branco */
+  margin: 0;
+  padding: 0;
+}
+
+/* Cabeçalho */
+h1 {
+  background-image: url('./images/png-transparent-sociedade-esportiva-palmeiras-campeonato-paulista-copa-do-brasil-choque-rei-paulista-derby-futebol-brasil-emblem-sport-logo.png'); /* Substitua pelo caminho da imagem do logo */
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: 80px; /* Tamanho médio do logo */
+  padding-left: 100px; /* Ajuste para o tamanho do logo */
+  font-size: 32px;
+  line-height: 64px;
+  margin: 0;
+  padding: 20px;
+  color: #fff; /* Texto branco */
+}
+
+/* Lista de Jogadores */
+h2 {
+  font-size: 24px;
+  margin-top: 20px;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+li {
+  margin: 10px 0;
+}
+
+button {
+  background-color: #0f4d18; /* Verde escuro do Palmeiras */
+  color: #fff; /* Texto branco */
+  border: none;
+  padding: 10px 20px;
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+/* Botão Adicionar Jogador */
+div > button {
+  margin-top: 10px;
+  background-color: #0f4d18; /* Verde escuro do Palmeiras */
+  color: #fff; /* Texto branco */
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px; /* Adicione bordas arredondadas para parecer um botão */
+  cursor: pointer;
+  display: inline-block; /* Faz com que o botão se comporte como um elemento de bloco */
+  text-align: center; /* Centraliza o texto no botão */
+  text-decoration: none; /* Remove sublinhado de links */
+  font-size: 16px;
+  transition: background-color 0.3s ease; /* Adiciona uma transição suave na cor de fundo em hover */
+}
+
+div > button:hover {
+  background-color: #092f10; /* Verde mais escuro em hover */
+}
+
+/* Formulários */
+input[type="text"] {
+  width: 50%;
+  padding: 10px;
+  margin: 5px 0;
+  border: 1px solid #0f4d18; /* Verde escuro do Palmeiras */
+  border-radius: 4px;
+  
+}
+
+/* Botão de Adicionar Jogador */
+div > button {
+  margin-top: 10px;
+  background-color: #017613; /* Verde escuro do Palmeiras */
+  color: #fff; /* Texto branco */
+  border: 1px solid rgb(3, 52, 5);
+}
+
+div > button:hover {
+  background-color: #092f10; /* Verde mais escuro em hover */
+}
+
+/* Formulário de Edição */
+h2 + div {
+  margin-top: 20px;
+}
+
+.centered-content {
+  display: flex;
+  justify-content: center; /* Centraliza horizontalmente */
+  align-items: center; /* Centraliza verticalmente */
+ /*height: 100vh; /* Define a altura para ocupar toda a altura da janela */
+}
