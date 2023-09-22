@@ -4,7 +4,7 @@ import axios from 'axios';
 import './App.css'; // Importe seu arquivo CSS aqui
 
 // URL da API fictícia (substitua pela sua URL real)
-const API_BASE_URL = 'https://api.palmeiras.com.br/players';
+const API_BASE_URL = 'http://localhost:3333';
 
 // Interface para definir a estrutura de dados do jogador
 interface Player {
@@ -33,7 +33,7 @@ const App: React.FC = () => {
   // Função para buscar a lista de jogadores da API
   const fetchPlayers = async () => {
     try {
-      const response = await axios.get<Player[]>(API_BASE_URL);
+      const response = await axios.get<Player[]>(`${API_BASE_URL}/players`);
       setPlayers(response.data);
     } catch (error) {
       console.error('Erro ao buscar jogadores:', error);
@@ -43,7 +43,7 @@ const App: React.FC = () => {
   // Função para criar um novo jogador na API
   const createPlayer = async () => {
     try {
-      await axios.post(API_BASE_URL, newPlayer);
+      await axios.post(`${API_BASE_URL}/player`, newPlayer);
       fetchPlayers();
       setNewPlayer({ name: '', position: '', skill: '' });
     } catch (error) {
@@ -54,7 +54,7 @@ const App: React.FC = () => {
   // Função para excluir um jogador da API
   const deletePlayer = async (id: number) => {
     try {
-      await axios.delete(`${API_BASE_URL}/${id}`);
+      await axios.delete(`${API_BASE_URL}/player/${id}`);
       fetchPlayers();
       setSelectedPlayer(null);
     } catch (error) {
@@ -66,7 +66,7 @@ const App: React.FC = () => {
   const updatePlayer = async () => {
     if (selectedPlayer) {
       try {
-        await axios.put(`${API_BASE_URL}/${selectedPlayer.id}`, selectedPlayer);
+        await axios.put(`${API_BASE_URL}/player/${selectedPlayer.id}/skill`, selectedPlayer);
         fetchPlayers();
         setSelectedPlayer(null);
       } catch (error) {
@@ -77,19 +77,7 @@ const App: React.FC = () => {
 
   return (
     <div >
-      <h1 className="centered-content">Jogadores do Palmeiras</h1>
-
-      {/* Lista de jogadores */}
-      <h2 className="centered-content">Lista de Jogadores</h2>
-      <ul>
-        {players.map((player) => (
-          <li key={player.id}>
-            {player.name} - {player.position} - Habilidade: {player.skill}
-            <button onClick={() => setSelectedPlayer(player)}>Editar</button>
-            <button onClick={() => deletePlayer(player.id)}>Excluir</button>
-          </li>
-        ))}
-      </ul>
+     <h1 className="centered-content">Jogadores do Palmeiras</h1>
 <br></br>
       {/* Formulário para adicionar novo jogador */}
       <h3>Adicionar Novo Jogador</h3>
@@ -117,6 +105,20 @@ const App: React.FC = () => {
           }
         />
         <button className="centered-content" onClick={createPlayer}>Adicionar Jogador</button>
+
+        
+
+        {/* Lista de jogadores */}
+        <h2 className="centered-content">Lista de Jogadores</h2>
+        <ul>
+        {players.map((player) => (
+        <li key={player.id}>
+        {player.name} - {player.position} - Habilidade: {player.skill}
+        <button onClick={() => setSelectedPlayer(player)}>Editar</button>
+        <button onClick={() => deletePlayer(player.id)}>Excluir</button>
+    </li>
+  ))}
+</ul>
       </div>
 
       {/* Formulário para editar jogador selecionado */}
